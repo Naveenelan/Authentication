@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('./images.jpeg');
+    background-color: #57e035;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .admin-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* File Actions */
+  .file-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .create-file input,
+  .create-file textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .create-file button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .create-file button:hover {
+    background-color: #45a049;
+  }
+  
+  /* File List */
+  .file-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .file-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .file-item strong {
+    font-size: 18px;
+  }
+  
+  .edit-file {
+    margin-top: 10px;
+  }
+  
+  .edit-file textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-file button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .edit-file button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .admin-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    .file-actions input,
+    .file-actions textarea {
+      font-size: 16px;
+    }
+  
+    .create-file button,
+    .edit-file button {
+      font-size: 16px;
+    }
+  }
+  
