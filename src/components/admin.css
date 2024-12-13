@@ -1,118 +1,124 @@
-/* General Styles */
+/* admin.css */
+
+/* General container styles */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('./images.jpeg');
-    background-color: #57e035;
+    background-color: #f7fff4;
     margin: 0;
     padding: 0;
   }
-  
-  .admin-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
+.admin-container {
+    font-family: Arial, sans-serif;
+    align-content: center;
+    margin: 0 auto; /* Center content */
+    padding: 20px;
+    max-width: 800px; /* Maximum width of the admin panel */
+    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
   }
   
+  /* Header and subheading styles */
   h1, h2, h3 {
-    text-align: center;
+    color: #333;
   }
   
   p {
-    text-align: center;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* User Actions Section */
+  .user-actions {
+    margin-top: 30px;
+  }
+  
+  .create-user, .edit-user {
     margin-bottom: 20px;
   }
   
-  /* File Actions */
-  .file-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .create-file input,
-  .create-file textarea {
-    width: 100%;
+  /* Input and button styling */
+  input, textarea {
+    width: 100%; /* Ensure inputs take up the full width of the container */
+    max-width: 300px; /* Limit input width */
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 14px;
   }
   
-  .create-file button {
-    padding: 12px 20px;
+  button {
+    padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    font-size: 14px;
+    max-width: 150px; /* Limit button width */
   }
   
-  .create-file button:hover {
+  button:hover {
     background-color: #45a049;
   }
   
-  /* File List */
-  .file-list ul {
-    list-style-type: none;
-    padding: 0;
+  /* User List Section */
+  .user-list {
+    margin-top: 20px;
   }
   
-  .file-item {
-    background-color: #f9f9f9;
+  .user-item {
+    border: 1px solid #ddd;
     padding: 15px;
+    margin: 10px 0;
     border-radius: 5px;
-    margin-bottom: 15px;
+    background-color: #fff;
   }
   
-  .file-item strong {
+  .user-item strong {
     font-size: 18px;
+    color: #333;
   }
   
-  .edit-file {
+  .user-item p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .edit-user {
+    margin-top: 15px;
+  }
+  
+  .edit-user input {
+    width: 100%;
+    max-width: 250px; /* Limit input width for editing */
+  }
+  
+  .edit-user button {
     margin-top: 10px;
   }
   
-  .edit-file textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  /* Additional styling for empty states */
+  .user-list p {
+    font-size: 16px;
+    color: #888;
   }
   
-  .edit-file button {
-    padding: 12px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .edit-file button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
+  /* Styling for responsive layout */
+  @media (max-width: 768px) {
     .admin-container {
-      padding: 20px;
-      margin: 20px;
+      width: 90%;
+      padding: 10px;
     }
   
-    .file-actions input,
-    .file-actions textarea {
-      font-size: 16px;
+    .user-item {
+      padding: 10px;
     }
   
-    .create-file button,
-    .edit-file button {
-      font-size: 16px;
+    input, textarea, button {
+      width: 100%;
+      max-width: 100%; /* Ensure full width on smaller screens */
     }
   }
   

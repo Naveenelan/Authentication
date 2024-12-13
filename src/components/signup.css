@@ -1,93 +1,107 @@
-/* Basic Styles */
+
+/* Additional CSS */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #65db51;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .signup-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .signup-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  .input-group label {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .input-group input:focus {
-    border-color: #4CAF50;
-    outline: none;
-  }
-  
-  .submit-btn {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submit-btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    .signup-container {
-      padding: 20px;
-      margin: 20px;
-    }
-  
-    h1 {
-      font-size: 24px;
-    }
-  
-    p {
-      font-size: 14px;
-    }
-  
-    .input-group input {
-      font-size: 16px;
-    }
-  
-    .submit-btn {
-      font-size: 18px;
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.greencollar-signup-container {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.greencollar-signup-container h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.greencollar-signup-container p {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.greencollar-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #1abc9c;
+  box-shadow: 0 0 4px rgba(26, 188, 156, 0.3);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin: 0;
+}
+
+.submit-btn {
+  background-color: #1abc9c;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #16a085;
+}

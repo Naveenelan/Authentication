@@ -1,45 +1,46 @@
 import React, { useState } from "react";
 import './admin.css';
 
-
-
 const Admin = () => {
-  // Sample data for files, in a real scenario, you would fetch this from your backend
-  const [files, setFiles] = useState([
-    { id: 1, name: "file1.txt", content: "This is the content of file1." },
-    { id: 2, name: "file2.txt", content: "This is the content of file2." },
+  // Sample data for users, in a real scenario, you would fetch this from your backend
+  const [users, setUsers] = useState([
+    { id: 1, username: "user1", password: "password1" },
+    { id: 2, username: "user2", password: "password2" },
   ]);
 
-  const [newFileName, setNewFileName] = useState("");
-  const [newFileContent, setNewFileContent] = useState("");
-  const [editContent, setEditContent] = useState("");
+  const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [editUsername, setEditUsername] = useState("");
+  const [editPassword, setEditPassword] = useState("");
 
-  const handleCreateFile = () => {
-    if (!newFileName || !newFileContent) {
-      alert("Please provide a file name and content.");
+  const handleCreateUser = () => {
+    if (!newUsername || !newPassword) {
+      alert("Please provide both username and password.");
       return;
     }
 
-    const newFile = {
-      id: files.length + 1,
-      name: newFileName,
-      content: newFileContent,
+    const newUser = {
+      id: users.length + 1,
+      username: newUsername,
+      password: newPassword,
     };
 
-    setFiles([...files, newFile]);
-    setNewFileName("");
-    setNewFileContent("");
+    setUsers([...users, newUser]);
+    setNewUsername("");
+    setNewPassword("");
   };
 
-  const handleEditFile = (id) => {
-    const updatedFiles = files.map((file) => {
-      if (file.id === id) {
-        file.content = editContent;
+  const handleEditUser = (id) => {
+    const updatedUsers = users.map((user) => {
+      if (user.id === id) {
+        if (editUsername) user.username = editUsername;
+        if (editPassword) user.password = editPassword;
       }
-      return file;
+      return user;
     });
-    setFiles(updatedFiles);
-    setEditContent("");
+    setUsers(updatedUsers);
+    setEditUsername("");
+    setEditPassword("");
   };
 
   return (
@@ -47,46 +48,54 @@ const Admin = () => {
       <h1>Admin Page</h1>
       <p>Welcome to the Admin Dashboard!</p>
 
-      <div className="file-actions">
-        <h2>Manage Files</h2>
+      <div className="user-actions">
+        <h2>Manage Users</h2>
 
-        {/* Create File Section */}
-        <div className="create-file">
-          <h3>Create a New File</h3>
+        {/* Create User Section */}
+        <div className="create-user">
+          <h3>Create a New User</h3>
           <input
             type="text"
-            placeholder="Enter file name"
-            value={newFileName}
-            onChange={(e) => setNewFileName(e.target.value)}
+            placeholder="Enter username"
+            value={newUsername}
+            onChange={(e) => setNewUsername(e.target.value)}
           />
-          <textarea
-            placeholder="Enter file content"
-            value={newFileContent}
-            onChange={(e) => setNewFileContent(e.target.value)}
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
-          <button onClick={handleCreateFile}>Create File</button>
+          <button onClick={handleCreateUser}>Create User</button>
         </div>
 
-        {/* File List */}
-        <div className="file-list">
-          <h3>Existing Files</h3>
-          {files.length === 0 ? (
-            <p>No files available.</p>
+        {/* User List */}
+        <div className="user-list">
+          <h3>Existing Users</h3>
+          {users.length === 0 ? (
+            <p>No users available.</p>
           ) : (
             <ul>
-              {files.map((file) => (
-                <li key={file.id} className="file-item">
-                  <strong>{file.name}</strong>
-                  <p>{file.content}</p>
+              {users.map((user) => (
+                <li key={user.id} className="user-item">
+                  <strong>{user.username}</strong>
+                  <p>Password: {user.password}</p>
 
-                  {/* Edit File */}
-                  <div className="edit-file">
-                    <textarea
-                      placeholder="Edit content"
-                      value={editContent}
-                      onChange={(e) => setEditContent(e.target.value)}
+                  {/* Edit User */}
+                  <div className="edit-user">
+                    <input
+                      type="text"
+                      placeholder="Edit username"
+                      value={editUsername}
+                      onChange={(e) => setEditUsername(e.target.value)}
                     />
-                    <button onClick={() => handleEditFile(file.id)}>
+                    <input
+                      type="password"
+                      placeholder="Edit password"
+                      value={editPassword}
+                      onChange={(e) => setEditPassword(e.target.value)}
+                    />
+                    <button onClick={() => handleEditUser(user.id)}>
                       Save Changes
                     </button>
                   </div>

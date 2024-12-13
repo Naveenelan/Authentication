@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './signup.css';
+import logo from './rbg.jpeg';
+import './signup.css'; // Adjust the path for your project's structure.
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "", // Initially empty
-  });
+  // Replace with an API call if the credentials are dynamically fetched.
+  const credentials = {
+    admin: { username: "Naveen", password: "Naveen" },
+    user: { username: "Guru", password: "Guru" },
+  };
 
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+ 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,58 +29,50 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.role) {
-      setError("Please select a role.");
-      return;
-    }
 
-    setLoading(true);
+    const { username, password } = formData;
+    setLoading();
     setError("");
 
-    // Simulate an API call to authenticate/signup
+    // Simulated delay for authentication; replace with an API call if needed.
     setTimeout(() => {
       setLoading(false);
-      const token = formData.role === "Admin" ? "admin-token" : "user-token";
 
-      // Redirect based on role
-      if (formData.role === "Admin") {
-        navigate("/admin", { state: { token } });
-      } else if (formData.role === "User" || formData.role === "Guest") {
-        navigate("/user", { state: { token } });
+      if (
+        username === credentials.admin.username &&
+        password === credentials.admin.password
+      ) {
+        navigate("/admin", { state: { username } }); // Update path as per greencollar routes.
+      } else if (
+        username === credentials.user.username &&
+        password === credentials.user.password
+      ) {
+        navigate("/user", { state: { username } }); // Update path as per greencollar routes.
+      } else {
+        setError("Invalid username or password. Please try again.");
       }
     }, 1000);
   };
 
   return (
-    <div className="signup-container">
-      <h1>Sign Up</h1>
-      <p>Welcome! Please sign up.</p>
-      <form onSubmit={handleSubmit} className="signup-form">
-        {/* Name Input */}
+    <div className="greencollar-signup-container">
+      <div className="logo-container">
+      <img src={logo} alt="Logo" className="logo"/>;
+      </div>
+      <h1>Welcome to Signup page</h1>
+      <p>Sign in to access your account.</p>
+      <form onSubmit={handleSubmit} className="greencollar-signup-form">
+        {/* Username Input */}
         <div className="input-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="username"
+            name="username"
+            value={formData.username}
             onChange={handleInputChange}
             required
-            placeholder="Enter your name"
-          />
-        </div>
-
-        {/* Email Input */}
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            placeholder="Enter your email"
+            placeholder="Enter your username"
           />
         </div>
 
@@ -93,31 +90,12 @@ const Signup = () => {
           />
         </div>
 
-        {/* Role Selection */}
-        <div className="input-group">
-          <label htmlFor="role">Role</label>
-          <select
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="" disabled>
-              Select Role:     
-            </option>
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-            {/* <option value="Guest">Guest</option> */}
-          </select>
-        </div>
-
         {/* Error Message */}
         {error && <p className="error-message">{error}</p>}
 
         {/* Submit Button */}
         <button type="submit" className="submit-btn" disabled={loading}>
-          {loading ? "Submitting..." : "Sign Up"}
+          {loading ? "Signing in..." : "Sign In"}
         </button>
       </form>
     </div>
